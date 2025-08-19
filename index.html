@@ -143,8 +143,8 @@
         
         .method-header {
             display: grid;
-            grid-template-columns: auto 1fr auto auto;
-            gap: 20px;
+            grid-template-columns: auto 1fr auto auto auto;
+            gap: 15px;
             align-items: center;
             padding: 25px 30px;
             cursor: pointer;
@@ -198,6 +198,9 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
+            text-align: center;
+            min-width: 80px;
+            white-space: nowrap;
         }
         
         .easy { background: #c8e6c9; color: #2e7d32; }
@@ -208,6 +211,8 @@
             font-size: 1.5rem;
             color: #2E8B57;
             transition: transform 0.3s;
+            width: 30px;
+            text-align: center;
         }
         
         .method-card.active .expand-icon {
@@ -324,6 +329,9 @@
             border-radius: 15px;
             font-weight: bold;
             font-size: 0.8rem;
+            text-align: center;
+            min-width: 90px;
+            white-space: nowrap;
         }
         
         .disclaimer {
@@ -340,7 +348,10 @@
             h1 { font-size: 2rem; }
             .method-header { 
                 grid-template-columns: auto 1fr auto; 
-                gap: 15px;
+                gap: 10px;
+            }
+            .top-pick {
+                display: none;
             }
             .pros-cons { grid-template-columns: 1fr; }
             .detail-grid { grid-template-columns: 1fr; }
@@ -379,6 +390,10 @@
                 <div class="intro-card">
                     <h3>💡 Marktforschung</h3>
                     <p>Alle Methoden wurden umfassend recherchiert und mit aktuellen Marktdaten verglichen</p>
+                </div>
+                <div class="intro-card">
+                    <h3>⚡ Schnellstart möglich</h3>
+                    <p>Die meisten Methoden kannst du bereits heute beginnen - ohne Vorkenntnisse oder großes Kapital</p>
                 </div>
                 <div class="intro-card">
                     <h3>📈 Skalierbar</h3>
@@ -481,6 +496,7 @@
                             <span class="rating-text">Etablierte Branche - Millionen-Umsätze</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty easy">Einfach</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -549,6 +565,7 @@
                             <span class="rating-text">Wachstumsmarkt - 23% jährliches Wachstum</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty medium">Mittel</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -617,6 +634,7 @@
                             <span class="rating-text">Bewährtes Geschäftsmodell - seit 2010</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty medium">Mittel</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -686,6 +704,7 @@
                             <span class="rating-text">Trend-Geschäft - Creator Economy</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty medium">Mittel</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -755,6 +774,7 @@
                             <span class="rating-text">Stetig wachsender Markt</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty easy">Einfach</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -824,6 +844,7 @@
                             <span class="rating-text">Milliarden-Marktplatz</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty hard">Schwer</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -893,6 +914,7 @@
                             <span class="rating-text">Wachsender DeFi-Sektor</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty medium">Mittel</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -962,6 +984,7 @@
                             <span class="rating-text">Millionen-Dollar-Industrie</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty easy">Einfach</div>
                     <div class="expand-icon">▼</div>
                 </div>
@@ -1031,6 +1054,7 @@
                             <span class="rating-text">Boom-Branche - Millionen-Exits</span>
                         </div>
                     </div>
+                    <div style="min-width: 90px;"></div>
                     <div class="difficulty hard">Schwer</div>
                     <div class="expand-icon">▼</div>
                 </div>
