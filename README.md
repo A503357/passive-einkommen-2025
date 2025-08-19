@@ -1,0 +1,1 @@
+# passive-einkommen-2025
