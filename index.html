@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Passive Einkommen 2025 - Die 20 besten Wege zu finanzieller Freiheit</title>
-    <meta name="description" content="Ultimativer Vergleich der 20 besten Methoden für passives Einkommen 2025. Ehrliche Tests, Vor- und Nachteile, Verdienstmöglichkeiten und Startkosten im Detail.">
+    <title>Passive Einkommen 2025 - Die 10 besten Wege zu finanzieller Freiheit</title>
+    <meta name="description" content="Ultimativer Vergleich der 10 besten Methoden für passives Einkommen 2025. Gründlich recherchiert, Vor- und Nachteile, Verdienstmöglichkeiten und Startkosten im Detail.">
     <style>
         * {
             margin: 0;
@@ -124,11 +124,11 @@
         .method-card {
             background: white;
             border-radius: 15px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease;
         }
         
         .method-card::before {
@@ -143,10 +143,16 @@
         
         .method-header {
             display: grid;
-            grid-template-columns: auto 1fr auto;
+            grid-template-columns: auto 1fr auto auto;
             gap: 20px;
             align-items: center;
-            margin-bottom: 25px;
+            padding: 25px 30px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .method-header:hover {
+            background-color: #f8f9fa;
         }
         
         .method-rank {
@@ -156,12 +162,35 @@
             border-radius: 50%;
             font-weight: bold;
             font-size: 1.2rem;
+            min-width: 50px;
+            text-align: center;
+        }
+        
+        .method-info {
+            flex-grow: 1;
         }
         
         .method-title {
             font-size: 1.5rem;
             color: #2E8B57;
             font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stars {
+            color: #FFD700;
+            font-size: 1rem;
+        }
+        
+        .rating-text {
+            font-size: 0.9rem;
+            color: #666;
         }
         
         .difficulty {
@@ -175,10 +204,35 @@
         .medium { background: #fff3e0; color: #f57c00; }
         .hard { background: #ffcdd2; color: #d32f2f; }
         
+        .expand-icon {
+            font-size: 1.5rem;
+            color: #2E8B57;
+            transition: transform 0.3s;
+        }
+        
+        .method-card.active .expand-icon {
+            transform: rotate(180deg);
+        }
+        
         .method-details {
+            display: none;
+            padding: 0 30px 30px 30px;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .method-card.active .method-details {
+            display: block;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .detail-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
             margin: 25px 0;
         }
         
@@ -186,6 +240,7 @@
             padding: 20px;
             border-radius: 10px;
             border: 1px solid #e0e0e0;
+            background: #fafafa;
         }
         
         .detail-box h4 {
@@ -262,26 +317,13 @@
             box-shadow: 0 6px 20px rgba(46,139,87,0.4);
         }
         
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .stars {
-            color: #FFD700;
-            font-size: 1.2rem;
-        }
-        
         .top-pick {
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
             color: #333;
-            padding: 10px 20px;
-            border-radius: 20px;
+            padding: 5px 15px;
+            border-radius: 15px;
             font-weight: bold;
-            position: absolute;
-            top: 15px;
-            right: 15px;
+            font-size: 0.8rem;
         }
         
         .disclaimer {
@@ -296,8 +338,13 @@
         
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
-            .method-header { grid-template-columns: 1fr; text-align: center; }
+            .method-header { 
+                grid-template-columns: auto 1fr auto; 
+                gap: 15px;
+            }
             .pros-cons { grid-template-columns: 1fr; }
+            .detail-grid { grid-template-columns: 1fr; }
+            .expand-icon { font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -305,7 +352,7 @@
     <header>
         <div class="container">
             <h1>💰 Passive Einkommen 2025</h1>
-            <p class="subtitle">Der ultimative Vergleich der 20 besten Methoden für finanzielle Freiheit - Von 100€ bis 10.000€+ monatlich</p>
+            <p class="subtitle">Der ultimative Vergleich der 10 besten Methoden für finanzielle Freiheit - Von 100€ bis 10.000€+ monatlich</p>
             <div class="trust-badges">
                 <div class="badge">✅ Gründlich recherchiert</div>
                 <div class="badge">📊 Datenbasierter Vergleich</div>
@@ -320,7 +367,7 @@
             <h2>🚀 Dein Weg zur finanziellen Freiheit startet hier!</h2>
             <p style="font-size: 1.1rem; text-align: center; margin-bottom: 30px;">
                 Du träumst davon, Geld zu verdienen, während du schläfst? Wir haben über 50 passive Einkommensquellen 
-                gründlich recherchiert und die 20 vielversprechendsten für dich zusammengestellt. Von absoluten Anfängern bis zu erfahrenen 
+                gründlich recherchiert und die 10 vielversprechendsten für dich zusammengestellt. Von absoluten Anfängern bis zu erfahrenen 
                 Unternehmern - hier findest du datenbasierte Analysen für deinen Start!
             </p>
             
@@ -341,259 +388,704 @@
         </div>
 
         <div class="quick-overview">
-            <h2>⚡ Schnellübersicht: Die Top 5 im Jahr 2025</h2>
-            <div class="overview-grid">
-                <div class="overview-item">
-                    <strong>🏆 Platz 1:</strong><br>
-                    E-Mail Marketing<br>
-                    <small>bis 5.000€/Monat</small>
-                </div>
-                <div class="overview-item">
-                    <strong>🥈 Platz 2:</strong><br>
-                    Affiliate Marketing<br>
-                    <small>bis 3.000€/Monat</small>
-                </div>
-                <div class="overview-item">
-                    <strong>🥉 Platz 3:</strong><br>
-                    Online Kurse<br>
-                    <small>bis 8.000€/Monat</small>
-                </div>
-                <div class="overview-item">
-                    <strong>🔥 Geheimtipp:</strong><br>
-                    AI-Content Tools<br>
-                    <small>bis 2.500€/Monat</small>
-                </div>
-                <div class="overview-item">
-                    <strong>💎 Premium:</strong><br>
-                    SaaS-Tools<br>
-                    <small>bis 15.000€/Monat</small>
-                </div>
-            </div>
+            <h2>⚡ Top 10 Methoden 2025 - Klicke für Details</h2>
+            <p style="margin-top: 15px; font-size: 1.1rem;">Jede Methode ausführlich analysiert mit Vor-/Nachteilen, Startkosten und realistischen Verdienstmöglichkeiten</p>
         </div>
 
         <div class="comparison-section">
             <!-- Methode 1: E-Mail Marketing -->
-            <div class="method-card">
-                <div class="top-pick">🏆 TOP WAHL 2025</div>
+            <div class="method-card" onclick="toggleMethod(this)">
                 <div class="method-header">
                     <div class="method-rank">1</div>
-                    <div>
+                    <div class="method-info">
                         <h3 class="method-title">E-Mail Marketing & Automation</h3>
                         <div class="rating">
                             <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <span>(Marktführer - über 5.000 Partner)</span>
+                            <span class="rating-text">Marktführer - über 5.000 Partner</span>
                         </div>
                     </div>
+                    <div class="top-pick">🏆 TOP WAHL</div>
                     <div class="difficulty easy">Einfach</div>
+                    <div class="expand-icon">▼</div>
                 </div>
 
                 <div class="method-details">
-                    <div class="detail-box">
-                        <h4>💰 Verdienstpotential</h4>
-                        <p><strong>500€ - 5.000€+/Monat</strong><br>
-                        Durchschnitt: 1.200€/Monat nach 6 Monaten</p>
-                        <p>Top-Performer verdienen über 10.000€/Monat</p>
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>500€ - 5.000€+/Monat</strong><br>
+                            Durchschnitt: 1.200€/Monat nach 6 Monaten</p>
+                            <p>Top-Performer verdienen über 10.000€/Monat</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 2-4 Stunden/Tag (4 Wochen)<br>
+                            <strong>Später:</strong> 2-3 Stunden/Woche</p>
+                            <p>Nach Aufbau fast vollautomatisch</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 50€/Monat<br>
+                            <strong>Empfohlen:</strong> 200€/Monat</p>
+                            <p>Für Tools, Hosting und erste Werbeanzeigen</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Grundlegende Computer-Kenntnisse<br>
+                            • Bereitschaft zu lernen<br>
+                            • Durchhaltevermögen<br>
+                            • Interesse am Schreiben</p>
+                        </div>
                     </div>
-                    <div class="detail-box">
-                        <h4>⏱️ Zeitaufwand</h4>
-                        <p><strong>Start:</strong> 2-4 Stunden/Tag (4 Wochen)<br>
-                        <strong>Später:</strong> 2-3 Stunden/Woche</p>
-                        <p>Nach Aufbau fast vollautomatisch</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>💸 Startkapital</h4>
-                        <p><strong>Minimal:</strong> 50€/Monat<br>
-                        <strong>Empfohlen:</strong> 200€/Monat</p>
-                        <p>Für Tools, Hosting und erste Werbeanzeigen</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>🎯 Voraussetzungen</h4>
-                        <p>• Grundlegende Computer-Kenntnisse<br>
-                        • Bereitschaft zu lernen<br>
-                        • Durchhaltevermögen<br>
-                        • Interesse am Schreiben</p>
-                    </div>
-                </div>
 
-                <div class="pros-cons">
-                    <div class="pros">
-                        <h4>✅ Vorteile</h4>
-                        <ul>
-                            <li>Sehr hohe ROI (Return on Investment)</li>
-                            <li>Skalierbar ohne Grenzen</li>
-                            <li>Wiederkehrende Einnahmen</li>
-                            <li>Vollständige Automatisierung möglich</li>
-                            <li>Funktioniert in jeder Branche</li>
-                            <li>Niedrige laufende Kosten</li>
-                        </ul>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Sehr hohe ROI (Return on Investment)</li>
+                                <li>Skalierbar ohne Grenzen</li>
+                                <li>Wiederkehrende Einnahmen</li>
+                                <li>Vollständige Automatisierung möglich</li>
+                                <li>Funktioniert in jeder Branche</li>
+                                <li>Niedrige laufende Kosten</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Aufbau dauert 3-6 Monate</li>
+                                <li>Kontinuierliches Lernen erforderlich</li>
+                                <li>Rechtliche Bestimmungen beachten</li>
+                                <li>Konkurrenz in beliebten Nischen</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="cons">
-                        <h4>❌ Nachteile</h4>
-                        <ul>
-                            <li>Aufbau dauert 3-6 Monate</li>
-                            <li>Kontinuierliches Lernen erforderlich</li>
-                            <li>Rechtliche Bestimmungen beachten</li>
-                            <li>Konkurrenz in beliebten Nischen</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="#weitere-methoden-link" class="cta-button">📋 Vollständige Liste aller 20 Methoden</a>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="https://www.digistore24.com/redir/38219/Florian22/" class="cta-button">🚀 Jetzt mit KlickTipp starten - 446€ Provision pro Verkauf!</a>
+                        <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
+                            ⚡ 17-38% Conversion Rate • 💰 25% wiederkehrende Provisionen • 🎯 Deutscher Support
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Detaillierte Analyse der Top 5 -->
-        <div style="background: white; padding: 50px; border-radius: 15px; margin: 50px 0; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
-            <h2 style="color: #2E8B57; text-align: center; margin-bottom: 40px;">🔍 Detaillierte Analyse: Warum diese Methoden 2025 dominieren</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-                <div style="padding: 25px; border: 2px solid #e8f5e8; border-radius: 10px;">
-                    <h3 style="color: #2E8B57; margin-bottom: 15px;">🎯 KlickTipp E-Mail Marketing</h3>
-                    <p><strong>Warum #1:</strong> E-Mail Marketing hat laut Studien die höchste ROI aller digitalen Marketing-Kanäle (4.200% laut DMA). KlickTipp bietet mit 446€ Provision pro Verkauf und 25% wiederkehrenden Provisionen das lukrativste Affiliate-Programm im deutschsprachigen Raum.</p>
-                    <p><strong>Erfolgsformel:</strong> Hohe Conversion-Rates (17-38%) + Deutsche Zielgruppe + Premium-Tool = Maximaler Profit</p>
+            <!-- Methode 2: Affiliate Marketing -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">2</div>
+                    <div class="method-info">
+                        <h3 class="method-title">Affiliate Marketing</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Etablierte Branche - Millionen-Umsätze</span>
+                        </div>
+                    </div>
+                    <div class="difficulty easy">Einfach</div>
+                    <div class="expand-icon">▼</div>
                 </div>
-                
-                <div style="padding: 25px; border: 2px solid #e8f5e8; border-radius: 10px;">
-                    <h3 style="color: #2E8B57; margin-bottom: 15px;">📈 Markttrends 2025</h3>
-                    <p>• E-Mail Marketing wächst um 13% jährlich<br>
-                    • 91% der Unternehmen nutzen Marketing Automation<br>
-                    • Deutsche Software wird bevorzugt (DSGVO-konform)<br>
-                    • KI-Integration wird Standard</p>
-                </div>
-                
-                <div style="padding: 25px; border: 2px solid #e8f5e8; border-radius: 10px;">
-                    <h3 style="color: #2E8B57; margin-bottom: 15px;">💡 Insider-Tipps</h3>
-                    <p>• Fokussiere auf B2B-Nischen (höhere Zahlungsbereitschaft)<br>
-                    • Nutze KlickTipp's Multi-Device-Tracking für 46% höhere Provisionen<br>
-                    • Kombiniere E-Mail Marketing mit Affiliate Marketing<br>
-                    • Baue eine E-Mail-Liste auf für wiederkehrende Verkäufe</p>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>300€ - 3.000€+/Monat</strong><br>
+                            Durchschnitt: 800€/Monat nach 4 Monaten</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 3-5 Stunden/Tag<br>
+                            <strong>Später:</strong> 1-2 Stunden/Woche</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 100€<br>
+                            <strong>Empfohlen:</strong> 500€</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Website-Erstellung<br>
+                            • SEO-Grundlagen<br>
+                            • Content-Erstellung</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Kein eigenes Produkt nötig</li>
+                                <li>Niedrige Einstiegshürden</li>
+                                <li>Viele Partnerprogramme verfügbar</li>
+                                <li>Skalierbar durch Content</li>
+                                <li>Passives Einkommen möglich</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Abhängig von Partnerprogrammen</li>
+                                <li>SEO-Kenntnisse erforderlich</li>
+                                <li>Viel Content nötig</li>
+                                <li>Konkurrenzdruck</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#affiliate-kurs-link" class="cta-button">📚 Zum Affiliate Marketing Masterclass</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Erfolgsgeschichten -->
-        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 50px; border-radius: 15px; margin: 50px 0;">
-            <h2 style="text-align: center; margin-bottom: 40px;">🏆 Erfolgsgeschichten aus unserer Community</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
-                    <h4>Sarah M., München</h4>
-                    <p>"Nach intensiver Recherche und 4 Monaten Aufbau verdiene ich nun konstant über KlickTipp Affiliate Marketing. Die Zahlen sprechen für sich!"</p>
-                    <div style="margin-top: 15px; font-weight: bold;">💰 Erfolgreicher Aufbau nach Anleitung</div>
+            <!-- Methode 3: Online Kurse -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">3</div>
+                    <div class="method-info">
+                        <h3 class="method-title">Online Kurse erstellen</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Wachstumsmarkt - 23% jährliches Wachstum</span>
+                        </div>
+                    </div>
+                    <div class="difficulty medium">Mittel</div>
+                    <div class="expand-icon">▼</div>
                 </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
-                    <h4>Thomas K., Berlin</h4>
-                    <p>"Mein Online-Kurs läuft seit 2 Jahren automatisiert. Die Recherche und Vorbereitung haben sich definitiv ausgezahlt."</p>
-                    <div style="margin-top: 15px; font-weight: bold;">💰 Langfristiger Erfolg durch Planung</div>
-                </div>
-                
-                <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
-                    <h4>Lisa W., Hamburg</h4>
-                    <p>"Print on Demand war mein Einstieg nach dieser Recherche. Heute läuft mein Business größtenteils automatisiert."</p>
-                    <div style="margin-top: 15px; font-weight: bold;">💰 Automatisierung erfolgreich umgesetzt</div>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>1.000€ - 8.000€+/Monat</strong><br>
+                            Ein erfolgreicher Kurs kann jahrelang verkaufen</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Erstellung:</strong> 40-80 Stunden<br>
+                            <strong>Später:</strong> 2-4 Stunden/Woche</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 200€<br>
+                            <strong>Empfohlen:</strong> 800€</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Expertenwissen in einem Bereich<br>
+                            • Video-Erstellung<br>
+                            • Strukturiertes Arbeiten</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Hohe Gewinnmargen (80%+)</li>
+                                <li>Einmaliger Aufwand, dauerhafter Verkauf</li>
+                                <li>Aufbau einer Expertenposition</li>
+                                <li>Skalierbar ohne Grenzen</li>
+                                <li>Hilfst anderen beim Lernen</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Hoher initialer Zeitaufwand</li>
+                                <li>Technische Kenntnisse nötig</li>
+                                <li>Marketing erforderlich</li>
+                                <li>Kurs muss aktuell gehalten werden</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#kurs-erstellen-link" class="cta-button">🎓 Online Kurs Empire - Schritt für Schritt Anleitung</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Schritt-für-Schritt Anleitung -->
-        <div style="background: white; padding: 50px; border-radius: 15px; margin: 50px 0; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
-            <h2 style="color: #2E8B57; text-align: center; margin-bottom: 40px;">🚀 Dein 30-Tage Aktionsplan zum ersten passiven Einkommen</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;">
-                <div style="text-align: center; padding: 20px; border: 2px solid #e8f5e8; border-radius: 10px;">
-                    <div style="background: #2E8B57; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem; font-weight: bold;">1</div>
-                    <h4 style="color: #2E8B57;">Woche 1-2: Vorbereitung</h4>
-                    <p>• Nische auswählen<br>
-                    • Zielgruppe definieren<br>
-                    • KlickTipp Account erstellen<br>
-                    • Website/Blog aufsetzen</p>
+            <!-- Methode 4: Dropshipping -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">4</div>
+                    <div class="method-info">
+                        <h3 class="method-title">Dropshipping</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Bewährtes Geschäftsmodell - seit 2010</span>
+                        </div>
+                    </div>
+                    <div class="difficulty medium">Mittel</div>
+                    <div class="expand-icon">▼</div>
                 </div>
-                
-                <div style="text-align: center; padding: 20px; border: 2px solid #e8f5e8; border-radius: 10px;">
-                    <div style="background: #2E8B57; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem; font-weight: bold;">2</div>
-                    <h4 style="color: #2E8B57;">Woche 3: Content erstellen</h4>
-                    <p>• 10 Artikel schreiben<br>
-                    • E-Mail Funnel aufbauen<br>
-                    • Lead-Magneten erstellen<br>
-                    • Social Media Profile</p>
-                </div>
-                
-                <div style="text-align: center; padding: 20px; border: 2px solid #e8f5e8; border-radius: 10px;">
-                    <div style="background: #2E8B57; color: white; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; font-size: 1.5rem; font-weight: bold;">3</div>
-                    <h4 style="color: #2E8B57;">Woche 4: Launch & Optimierung</h4>
-                    <p>• Traffic-Generierung starten<br>
-                    • A/B Tests durchführen<br>
-                    • Conversion optimieren<br>
-                    • Erste Verkäufe feiern! 🎉</p>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>500€ - 5.000€+/Monat</strong><br>
+                            Erfolgreiche Shops: 10.000€+ möglich</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 6-8 Stunden/Tag<br>
+                            <strong>Später:</strong> 2-3 Stunden/Tag</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 500€<br>
+                            <strong>Empfohlen:</strong> 2.000€</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• E-Commerce Grundlagen<br>
+                            • Marketing-Skills<br>
+                            • Kundenservice<br>
+                            • Rechtliche Kenntnisse</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Keine Lagerhaltung nötig</li>
+                                <li>Geringes Startrisiko</li>
+                                <li>Skalierbar</li>
+                                <li>Große Produktauswahl</li>
+                                <li>Flexibel von überall machbar</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Hohe Konkurrenz</li>
+                                <li>Niedrige Gewinnmargen</li>
+                                <li>Abhängig von Lieferanten</li>
+                                <li>Kundenservice-Aufwand</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#dropshipping-kurs-link" class="cta-button">🛒 Dropshipping Masterclass 2025</a>
+                    </div>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="#komplette-anleitung-link" class="cta-button" style="font-size: 1.2rem; padding: 20px 40px;">📚 Zur kompletten Schritt-für-Schritt Anleitung</a>
-            </div>
-        </div>
 
-        <!-- FAQ Section -->
-        <div style="background: #f8f9fa; padding: 50px; border-radius: 15px; margin: 50px 0;">
-            <h2 style="color: #2E8B57; text-align: center; margin-bottom: 40px;">❓ Häufig gestellte Fragen</h2>
-            
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="background: white; margin-bottom: 20px; padding: 25px; border-radius: 10px; border-left: 4px solid #2E8B57;">
-                    <h4 style="color: #2E8B57; margin-bottom: 10px;">Kann ich wirklich ohne Vorkenntnisse starten?</h4>
-                    <p>Ja! Unsere Recherche zeigt, dass die empfohlenen Programme deutschen Support und umfangreiche Schulungen bieten. Mit systematischer Herangehensweise können auch Anfänger erfolgreich werden.</p>
+            <!-- Methode 5: YouTube Automation -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">5</div>
+                    <div class="method-info">
+                        <h3 class="method-title">YouTube Automation</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Trend-Geschäft - Creator Economy</span>
+                        </div>
+                    </div>
+                    <div class="difficulty medium">Mittel</div>
+                    <div class="expand-icon">▼</div>
                 </div>
-                
-                <div style="background: white; margin-bottom: 20px; padding: 25px; border-radius: 10px; border-left: 4px solid #2E8B57;">
-                    <h4 style="color: #2E8B57; margin-bottom: 10px;">Wie schnell kann ich erste Einnahmen erwarten?</h4>
-                    <p>Basierend auf Marktdaten: Bei E-Mail Marketing erste Verkäufe nach 2-4 Wochen möglich. Nennenswerte Einnahmen (500€+) zeigen sich meist nach 2-3 Monaten bei konsequenter Umsetzung.</p>
-                </div>
-                
-                <div style="background: white; margin-bottom: 20px; padding: 25px; border-radius: 10px; border-left: 4px solid #2E8B57;">
-                    <h4 style="color: #2E8B57; margin-bottom: 10px;">Ist das alles legal und seriös?</h4>
-                    <p>Absolut! Alle empfohlenen Methoden sind zu 100% legal. KlickTipp ist ein etabliertes deutsches Unternehmen mit jahrelanger Markterfahrung und tausenden Geschäftspartnern.</p>
-                </div>
-                
-                <div style="background: white; margin-bottom: 20px; padding: 25px; border-radius: 10px; border-left: 4px solid #2E8B57;">
-                    <h4 style="color: #2E8B57; margin-bottom: 10px;">Was passiert, wenn es nicht funktioniert?</h4>
-                    <p>Die meisten Programme bieten Geld-zurück-Garantien. Zudem stehen dir Community-Support und Ressourcen zur Verfügung. Wichtig: Realistische Erwartungen haben und durchhalten!</p>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>200€ - 4.000€+/Monat</strong><br>
+                            Erfolgreiche Kanäle: 10.000€+ möglich</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 4-6 Stunden/Tag<br>
+                            <strong>Später:</strong> 2-4 Stunden/Woche</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 300€<br>
+                            <strong>Empfohlen:</strong> 1.000€</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Video-Editing Grundlagen<br>
+                            • Nischen-Verständnis<br>
+                            • Content-Planung<br>
+                            • Outsourcing-Skills</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Hohe Reichweite möglich</li>
+                                <li>Mehrere Einnahmequellen</li>
+                                <li>Automatisierbar durch Teams</li>
+                                <li>Viral-Potenzial</li>
+                                <li>Langfristige Assets</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Algorithmus-abhängig</li>
+                                <li>Hoher Content-Bedarf</li>
+                                <li>Monetarisierung dauert</li>
+                                <li>Trends ändern sich schnell</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#youtube-kurs-link" class="cta-button">🎬 YouTube Cash Cow Channels</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Tools & Ressourcen -->
-        <div style="background: white; padding: 50px; border-radius: 15px; margin: 50px 0; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
-            <h2 style="color: #2E8B57; text-align: center; margin-bottom: 40px;">🛠️ Empfohlene Tools für deinen Erfolg</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;">
-                <div style="padding: 25px; border: 2px solid #e8f5e8; border-radius: 10px; text-align: center;">
-                    <h4 style="color: #2E8B57; margin-bottom: 15px;">🏆 E-Mail Marketing</h4>
-                    <p><strong>KlickTipp</strong> - Das beste Tool für deutschsprachige Märkte</p>
-                    <p style="color: #28a745; font-weight: bold;">446€ Provision pro Verkauf!</p>
-                    <a href="https://www.digistore24.com/redir/38219/Florian22/" class="cta-button" style="margin-top: 15px; display: inline-block;">Jetzt starten</a>
+            <!-- Methode 6: Print on Demand -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">6</div>
+                    <div class="method-info">
+                        <h3 class="method-title">Print on Demand</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Stetig wachsender Markt</span>
+                        </div>
+                    </div>
+                    <div class="difficulty easy">Einfach</div>
+                    <div class="expand-icon">▼</div>
                 </div>
-                
-                <div style="padding: 25px; border: 2px solid #e8f5e8; border-radius: 10px; text-align: center;">
-                    <h4 style="color: #2E8B57; margin-bottom: 15px;">📊 Analytics</h4>
-                    <p><strong>Google Analytics 4</strong> - Kostenlose Erfolgsmessung</p>
-                    <p style="color: #666;">Verfolge deine Besucher und Conversions</p>
-                    <a href="#analytics-kurs-link" class="cta-button" style="margin-top: 15px; display: inline-block;">Setup-Anleitung</a>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>200€ - 1.500€+/Monat</strong><br>
+                            Top-Designer: 3.000€+ möglich</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 2-3 Stunden/Tag<br>
+                            <strong>Später:</strong> 1-2 Stunden/Woche</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 50€<br>
+                            <strong>Empfohlen:</strong> 300€</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Grundlegende Design-Skills<br>
+                            • Kreativität<br>
+                            • Trend-Gespür<br>
+                            • Geduld für den Aufbau</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Keine Lagerhaltung</li>
+                                <li>Minimales Startkapital</li>
+                                <li>Kreative Freiheit</li>
+                                <li>Skalierbar</li>
+                                <li>Globaler Markt</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Hohe Konkurrenz</li>
+                                <li>Niedrige Gewinnmargen</li>
+                                <li>Design-Skills erforderlich</li>
+                                <li>Viele Designs nötig</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#pod-link" class="cta-button">🎨 Print on Demand Erfolgsformel</a>
+                    </div>
                 </div>
-                
-                <div style="padding: 25px; border: 2px solid #e8f5e8; border-radius: 10px; text-align: center;">
-                    <h4 style="color: #2E8B57; margin-bottom: 15px;">🎨 Design</h4>
-                    <p><strong>Canva Pro</strong> - Professionelle Grafiken ohne Designer</p>
-                    <p style="color: #666;">Für Social Media, Websites und E-Mails</p>
-                    <a href="#canva-link" class="cta-button" style="margin-top: 15px; display: inline-block;">30 Tage kostenlos</a>
+            </div>
+
+            <!-- Methode 7: Amazon FBA -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">7</div>
+                    <div class="method-info">
+                        <h3 class="method-title">Amazon FBA</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Milliarden-Marktplatz</span>
+                        </div>
+                    </div>
+                    <div class="difficulty hard">Schwer</div>
+                    <div class="expand-icon">▼</div>
                 </div>
-                
-                <div style="padding: 25px; border: 2px solid #e8f5e8; border-radius: 10px; text-align: center;">
-                    <h4 style="color: #2E8B57; margin-bottom: 15px;">🚀 Website</h4>
-                    <p><strong>WordPress + Hosting</strong> - Professionelle Website in Minuten</p>
-                    <p style="color: #666;">Inkl. SSL, Backup und Support</p>
-                    <a href="#hosting-deal-link" class="cta-button" style="margin-top: 15px; display: inline-block;">Zum Hosting-Deal</a>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>1.000€ - 10.000€+/Monat</strong><br>
+                            Erfolgreiche Seller: 50.000€+ möglich</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 6-10 Stunden/Tag<br>
+                            <strong>Später:</strong> 3-5 Stunden/Tag</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 3.000€<br>
+                            <strong>Empfohlen:</strong> 10.000€</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Produktrecherche-Skills<br>
+                            • Kapital für Inventory<br>
+                            • Risikotoleranz<br>
+                            • Business-Verständnis</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Riesiger Marktplatz</li>
+                                <li>Amazon übernimmt Logistik</li>
+                                <li>Hohes Gewinnpotenzial</li>
+                                <li>Skalierbar</li>
+                                <li>Etablierte Infrastruktur</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Hohes Startkapital nötig</li>
+                                <li>Komplexe Regeln</li>
+                                <li>Starke Konkurrenz</li>
+                                <li>Amazon-abhängig</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#fba-link" class="cta-button">📦 Amazon FBA Masterclass</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methode 8: Kryptowährungen Staking -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">8</div>
+                    <div class="method-info">
+                        <h3 class="method-title">Kryptowährungen Staking</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Wachsender DeFi-Sektor</span>
+                        </div>
+                    </div>
+                    <div class="difficulty medium">Mittel</div>
+                    <div class="expand-icon">▼</div>
+                </div>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>5-20% jährlich</strong><br>
+                            Je nach Coin und Plattform</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 10-20 Stunden Recherche<br>
+                            <strong>Später:</strong> 1-2 Stunden/Monat</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 500€<br>
+                            <strong>Empfohlen:</strong> 5.000€+</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Krypto-Grundwissen<br>
+                            • Risikotoleranz<br>
+                            • Technisches Verständnis<br>
+                            • Langfristiger Anlagehorizont</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Wirklich passives Einkommen</li>
+                                <li>Hohe Renditen möglich</li>
+                                <li>24/7 Zinserträge</li>
+                                <li>Diversifikation möglich</li>
+                                <li>Niedrige Gebühren</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Hohe Volatilität</li>
+                                <li>Regulatorische Risiken</li>
+                                <li>Technische Komplexität</li>
+                                <li>Lock-up Perioden</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#crypto-link" class="cta-button">₿ Krypto Staking Guide</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methode 9: Stock Photography -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">9</div>
+                    <div class="method-info">
+                        <h3 class="method-title">Stock Photography</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Millionen-Dollar-Industrie</span>
+                        </div>
+                    </div>
+                    <div class="difficulty easy">Einfach</div>
+                    <div class="expand-icon">▼</div>
+                </div>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>100€ - 800€+/Monat</strong><br>
+                            Top-Fotografen: 2.000€+ möglich</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 3-4 Stunden/Tag<br>
+                            <strong>Später:</strong> 2-3 Stunden/Woche</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 200€<br>
+                            <strong>Empfohlen:</strong> 1.000€</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Kamera (oder gutes Smartphone)<br>
+                            • Fotografische Grundlagen<br>
+                            • Bildbearbeitung<br>
+                            • Auge für Trends</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Kreative Tätigkeit</li>
+                                <li>Flexibel von überall</li>
+                                <li>Einmalige Arbeit, mehrfacher Verkauf</li>
+                                <li>Viele Plattformen verfügbar</li>
+                                <li>Kein Kundenkontakt nötig</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Sehr niedrige Preise pro Bild</li>
+                                <li>Hohe Konkurrenz</li>
+                                <li>Viele Bilder für gute Einnahmen nötig</li>
+                                <li>Trends schwer vorhersagbar</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#photo-link" class="cta-button">📸 Stock Photo Erfolgsystem</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Methode 10: SaaS Tools -->
+            <div class="method-card" onclick="toggleMethod(this)">
+                <div class="method-header">
+                    <div class="method-rank">10</div>
+                    <div class="method-info">
+                        <h3 class="method-title">SaaS Tools entwickeln</h3>
+                        <div class="rating">
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="rating-text">Boom-Branche - Millionen-Exits</span>
+                        </div>
+                    </div>
+                    <div class="difficulty hard">Schwer</div>
+                    <div class="expand-icon">▼</div>
+                </div>
+
+                <div class="method-details">
+                    <div class="detail-grid">
+                        <div class="detail-box">
+                            <h4>💰 Verdienstpotential</h4>
+                            <p><strong>1.000€ - 50.000€+/Monat</strong><br>
+                            Erfolgreiche SaaS: Millionen-Bewertungen</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>⏱️ Zeitaufwand</h4>
+                            <p><strong>Start:</strong> 8-12 Stunden/Tag (6+ Monate)<br>
+                            <strong>Später:</strong> 4-8 Stunden/Tag</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>💸 Startkapital</h4>
+                            <p><strong>Minimal:</strong> 2.000€<br>
+                            <strong>Empfohlen:</strong> 20.000€+</p>
+                        </div>
+                        <div class="detail-box">
+                            <h4>🎯 Voraussetzungen</h4>
+                            <p>• Programmier-Kenntnisse<br>
+                            • Problem-Lösungs-Mentalität<br>
+                            • Business-Verständnis<br>
+                            • Langfristige Vision</p>
+                        </div>
+                    </div>
+
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ Vorteile</h4>
+                            <ul>
+                                <li>Höchstes Gewinnpotenzial</li>
+                                <li>Wiederkehrende Einnahmen</li>
+                                <li>Skalierbar ohne Grenzen</li>
+                                <li>Exit-Möglichkeiten</li>
+                                <li>Löst echte Probleme</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>❌ Nachteile</h4>
+                            <ul>
+                                <li>Sehr hoher Aufwand</li>
+                                <li>Technische Komplexität</li>
+                                <li>Langes Break-even</li>
+                                <li>Starke Konkurrenz</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px;">
+                        <a href="#saas-link" class="cta-button">💻 SaaS Entwicklung Bootcamp</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -610,9 +1102,6 @@
                 <a href="https://www.digistore24.com/redir/38219/Florian22/" class="cta-button" style="background: #FFD700; color: #333; font-size: 1.2rem; padding: 20px 40px;">
                     🏆 Mit KlickTipp starten - 446€ pro Verkauf!
                 </a>
-                <a href="#kompletter-guide-link" class="cta-button" style="background: rgba(255,255,255,0.2); border: 2px solid white; font-size: 1.1rem; padding: 18px 35px;">
-                    📚 Kompletter Erfolgs-Guide
-                </a>
             </div>
             
             <div style="display: flex; justify-content: center; gap: 40px; font-size: 0.9rem; opacity: 0.9; flex-wrap: wrap;">
@@ -628,7 +1117,7 @@
             <h4 style="margin-bottom: 15px; color: #333;">⚖️ Rechtliche Hinweise</h4>
             <p>
                 <strong>Affiliate-Marketing Transparenz:</strong> Diese Seite enthält Affiliate-Links. Wenn du über unsere Links kaufst, 
-                erhalten wir eine Provision - ohne Mehrkosten für dich. Wir empfehlen nur Produkte, die wir selbst nutzen und für gut befinden.
+                erhalten wir eine Provision - ohne Mehrkosten für dich. Wir empfehlen nur Produkte, die wir für sinnvoll halten.
             </p>
             <p style="margin-top: 15px;">
                 <strong>Erfolgs-Disclaimer:</strong> Die genannten Verdienstmöglichkeiten sind Beispiele und keine Garantie. 
@@ -645,292 +1134,29 @@
         </div>
     </div>
 
-    <!-- Floating Action Button -->
-    <div style="position: fixed; bottom: 30px; right: 30px; z-index: 1000;">
-        <a href="https://www.digistore24.com/redir/38219/Florian22/" style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            border-radius: 50%;
-            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
-            text-decoration: none;
-            color: #333;
-            font-size: 1.5rem;
-            font-weight: bold;
-            transition: all 0.3s;
-            animation: pulse 2s infinite;
-        " onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
-            💰
-        </a>
-    </div>
-
-    <style>
-        @keyframes pulse {
-            0% { box-shadow: 0 8px 25px rgba(255,215,0,0.4); }
-            50% { box-shadow: 0 8px 35px rgba(255,215,0,0.7); }
-            100% { box-shadow: 0 8px 25px rgba(255,215,0,0.4); }
+    <script>
+        function toggleMethod(element) {
+            // Close all other open cards
+            const allCards = document.querySelectorAll('.method-card');
+            allCards.forEach(card => {
+                if (card !== element && card.classList.contains('active')) {
+                    card.classList.remove('active');
+                }
+            });
+            
+            // Toggle current card
+            element.classList.toggle('active');
         }
-    </style>
+
+        // Close card when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.method-card')) {
+                const allCards = document.querySelectorAll('.method-card');
+                allCards.forEach(card => {
+                    card.classList.remove('active');
+                });
+            }
+        });
+    </script>
 </body>
-</html>align: center; margin-top: 30px;">
-                    <a href="https://www.digistore24.com/redir/38219/Florian22/" class="cta-button">🚀 Jetzt mit KlickTipp starten - 446€ Provision pro Verkauf!</a>
-                    <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">
-                        ⚡ 17-38% Conversion Rate • 💰 25% wiederkehrende Provisionen • 🎯 Deutscher Support
-                    </p>
-                </div>
-            </div>
-
-            <!-- Methode 2: Affiliate Marketing -->
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">2</div>
-                    <div>
-                        <h3 class="method-title">Affiliate Marketing</h3>
-                        <div class="rating">
-                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <span>(Etablierte Branche - Millionen-Umsätze)</span>
-                        </div>
-                    </div>
-                    <div class="difficulty easy">Einfach</div>
-                </div>
-
-                <div class="method-details">
-                    <div class="detail-box">
-                        <h4>💰 Verdienstpotential</h4>
-                        <p><strong>300€ - 3.000€+/Monat</strong><br>
-                        Durchschnitt: 800€/Monat nach 4 Monaten</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>⏱️ Zeitaufwand</h4>
-                        <p><strong>Start:</strong> 3-5 Stunden/Tag<br>
-                        <strong>Später:</strong> 1-2 Stunden/Woche</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>💸 Startkapital</h4>
-                        <p><strong>Minimal:</strong> 100€<br>
-                        <strong>Empfohlen:</strong> 500€</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>🎯 Voraussetzungen</h4>
-                        <p>• Website-Erstellung<br>
-                        • SEO-Grundlagen<br>
-                        • Content-Erstellung</p>
-                    </div>
-                </div>
-
-                <div class="pros-cons">
-                    <div class="pros">
-                        <h4>✅ Vorteile</h4>
-                        <ul>
-                            <li>Kein eigenes Produkt nötig</li>
-                            <li>Niedrige Einstiegshürden</li>
-                            <li>Viele Partnerprogramme verfügbar</li>
-                            <li>Skalierbar durch Content</li>
-                            <li>Passives Einkommen möglich</li>
-                        </ul>
-                    </div>
-                    <div class="cons">
-                        <h4>❌ Nachteile</h4>
-                        <ul>
-                            <li>Abhängig von Partnerprogrammen</li>
-                            <li>SEO-Kenntnisse erforderlich</li>
-                            <li>Viel Content nötig</li>
-                            <li>Konkurrenzdruck</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="#affiliate-kurs-link" class="cta-button">📚 Zum Affiliate Marketing Masterclass</a>
-                </div>
-            </div>
-
-            <!-- Methode 3: Online Kurse -->
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">3</div>
-                    <div>
-                        <h3 class="method-title">Online Kurse erstellen</h3>
-                        <div class="rating">
-                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <span>(Wachstumsmarkt - 23% jährliches Wachstum)</span>
-                        </div>
-                    </div>
-                    <div class="difficulty medium">Mittel</div>
-                </div>
-
-                <div class="method-details">
-                    <div class="detail-box">
-                        <h4>💰 Verdienstpotential</h4>
-                        <p><strong>1.000€ - 8.000€+/Monat</strong><br>
-                        Ein erfolgreicher Kurs kann jahrelang verkaufen</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>⏱️ Zeitaufwand</h4>
-                        <p><strong>Erstellung:</strong> 40-80 Stunden<br>
-                        <strong>Später:</strong> 2-4 Stunden/Woche</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>💸 Startkapital</h4>
-                        <p><strong>Minimal:</strong> 200€<br>
-                        <strong>Empfohlen:</strong> 800€</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>🎯 Voraussetzungen</h4>
-                        <p>• Expertenwissen in einem Bereich<br>
-                        • Video-Erstellung<br>
-                        • Strukturiertes Arbeiten</p>
-                    </div>
-                </div>
-
-                <div class="pros-cons">
-                    <div class="pros">
-                        <h4>✅ Vorteile</h4>
-                        <ul>
-                            <li>Hohe Gewinnmargen (80%+)</li>
-                            <li>Einmaliger Aufwand, dauerhafter Verkauf</li>
-                            <li>Aufbau einer Expertenposition</li>
-                            <li>Skalierbar ohne Grenzen</li>
-                            <li>Hilfst anderen beim Lernen</li>
-                        </ul>
-                    </div>
-                    <div class="cons">
-                        <h4>❌ Nachteile</h4>
-                        <ul>
-                            <li>Hoher initialer Zeitaufwand</li>
-                            <li>Technische Kenntnisse nötig</li>
-                            <li>Marketing erforderlich</li>
-                            <li>Kurs muss aktuell gehalten werden</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="#kurs-erstellen-link" class="cta-button">🎓 Online Kurs Empire - Schritt für Schritt Anleitung</a>
-                </div>
-            </div>
-
-            <!-- Methode 4: Dropshipping -->
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">4</div>
-                    <div>
-                        <h3 class="method-title">Dropshipping</h3>
-                        <div class="rating">
-                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <span>(Bewährtes Geschäftsmodell - seit 2010)</span>
-                        </div>
-                    </div>
-                    <div class="difficulty medium">Mittel</div>
-                </div>
-
-                <div class="method-details">
-                    <div class="detail-box">
-                        <h4>💰 Verdienstpotential</h4>
-                        <p><strong>500€ - 5.000€+/Monat</strong><br>
-                        Erfolgreiche Shops: 10.000€+ möglich</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>⏱️ Zeitaufwand</h4>
-                        <p><strong>Start:</strong> 6-8 Stunden/Tag<br>
-                        <strong>Später:</strong> 2-3 Stunden/Tag</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>💸 Startkapital</h4>
-                        <p><strong>Minimal:</strong> 500€<br>
-                        <strong>Empfohlen:</strong> 2.000€</p>
-                    </div>
-                    <div class="detail-box">
-                        <h4>🎯 Voraussetzungen</h4>
-                        <p>• E-Commerce Grundlagen<br>
-                        • Marketing-Skills<br>
-                        • Kundenservice<br>
-                        • Rechtliche Kenntnisse</p>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="#dropshipping-kurs-link" class="cta-button">🛒 Dropshipping Masterclass 2025</a>
-                </div>
-            </div>
-
-            <!-- Methode 5: YouTube Automation -->
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">5</div>
-                    <div>
-                        <h3 class="method-title">YouTube Automation</h3>
-                        <div class="rating">
-                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                            <span>(Trend-Geschäft - Creator Economy)</span>
-                        </div>
-                    </div>
-                    <div class="difficulty medium">Mittel</div>
-                </div>
-
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="#youtube-kurs-link" class="cta-button">🎬 YouTube Cash Cow Channels</a>
-                </div>
-            </div>
-
-            <!-- Weitere Methoden (6-20) in kompakterer Form -->
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">6</div>
-                    <div class="method-title">Print on Demand</div>
-                    <div class="difficulty easy">Einfach</div>
-                </div>
-                <p>Verkaufe eigene Designs auf T-Shirts, Tassen & Co ohne Lagerhaltung. 200-1.500€/Monat möglich.</p>
-                <div style="text-align: center; margin-top: 20px;">
-                    <a href="#pod-link" class="cta-button">Mehr erfahren</a>
-                </div>
-            </div>
-
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">7</div>
-                    <div class="method-title">Amazon FBA</div>
-                    <div class="difficulty hard">Schwer</div>
-                </div>
-                <p>Verkaufe Produkte über Amazon mit deren Logistik. Hohes Potential aber auch hohes Risiko.</p>
-            </div>
-
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">8</div>
-                    <div class="method-title">Kryptowährungen Staking</div>
-                    <div class="difficulty medium">Mittel</div>
-                </div>
-                <p>Verdiene passives Einkommen durch Staking von Kryptowährungen. 5-20% jährlich möglich.</p>
-            </div>
-
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">9</div>
-                    <div class="method-title">Immobilien Investment</div>
-                    <div class="difficulty hard">Schwer</div>
-                </div>
-                <p>Klassische Mieteinnahmen oder REITs. Hohes Startkapital aber stabiles passives Einkommen.</p>
-            </div>
-
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">10</div>
-                    <div class="method-title">Stock Photography</div>
-                    <div class="difficulty easy">Einfach</div>
-                </div>
-                <p>Verkaufe Fotos und Videos an Stockfoto-Plattformen. 100-800€/Monat für gute Fotografen.</p>
-            </div>
-
-            <!-- Weitere Methoden 11-20 -->
-            <div class="method-card">
-                <div class="method-header">
-                    <div class="method-rank">11-20</div>
-                    <div class="method-title">Weitere profitable Methoden</div>
-                    <div class="difficulty medium">Gemischt</div>
-                </div>
-                <p>App Entwicklung, Blogging, Podcasting, SaaS Tools, NFTs, Trading Bots, Membership Sites, Licensing, Vending Machines, Peer-to-Peer Lending</p>
-                <div style="text-
+</html>
